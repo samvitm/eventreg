@@ -1,0 +1,56 @@
+<html>
+<head>
+<script language=JavaScript>
+function butCheckForm_onclick()
+{
+   var myForm = document.form1;
+   if (myForm.txtAge.value == "" || myForm.txtName.value == "")
+   {
+      alert("Please complete all the form");
+      if (myForm.txtName.value == "")
+      {
+         myForm.txtName.focus();
+      }
+      else
+      {
+         myForm.txtAge.focus();
+      }
+   }
+   else
+   {
+      alert("Thanks for completing the form " + myForm.txtName.value);
+   }
+}
+function txtAge_onblur()
+{
+   var txtAge = document.form1.txtAge;
+   if (isNaN(txtAge.value) == true)
+   {
+      alert("Please enter a valid age");
+      txtAge.focus();
+      txtAge.select();
+   }
+}
+function txtName_onchange()
+{
+   window.status = "Hi " + document.form1.txtName.value;
+}
+</script>
+</head>
+<body>
+<form name=form1>
+   Please enter the following details:
+   <p>
+   Name:
+   <br>
+   <input type="text" name=txtName onchange="txtName_onchange()">
+   <br>
+   Age:
+   <br>
+   <input type="text" name=txtAge onblur="txtAge_onblur()" size=3 maxlength=3>
+   <br>
+   <input type="button" value="Check Details" name=butCheckForm
+      onclick="butCheckForm_onclick()">
+</form>
+</body>
+</html>
